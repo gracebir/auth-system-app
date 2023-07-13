@@ -21,7 +21,16 @@ model User{
 model Store {
   id Int @id @default(autoincrement())
   userId Int
-  dayOpen String
-  dayClose String
+  startDay String
+  endDay String
+  timeServices TimeService[]
   user User @relation(fields: [userId], references: [id])
+}
+
+model TimeService{
+  id Int @id @default(autoincrement())
+  storeId Int
+  store Store @relation(fields: [storeId], references: [id])
+  startHour String
+  endHour String
 }
