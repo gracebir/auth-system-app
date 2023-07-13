@@ -1,47 +1,22 @@
-import Dropdown from "@/components/Dropdown"
-import { times, days } from "@/data"
-import { useState } from "react"
+import LoginForm from '@/components/LoginForm'
+import Link from 'next/link'
+import React from 'react'
 
-export default function Home() {
-  const [startTime, setStartTime] = useState("")
-  const [endTime, setEndTime] = useState("")
-  const [startDay, setStartDay] = useState("Days here")
-  const [endDay, setEndDay] = useState("End Days here")
+function Home() {
   return (
-    <main className="flex items-center min-h-screen">
-      <div className='border border-dark-color rounded-md grid lg:grid-cols-2 sm:grid-cols-1 flex-1 max-w-7xl mx-auto p-4'>
-        <div className="col-span-1 flex flex-col gap-8">
-          <div className='text-center flex flex-col gap-4'>
-            <h1 className='text-xl font-bold'>Store Schedule</h1>
-            <span>Set the Schedule of your store here</span>
-          </div>
-          <div className='grid lg:grid-cols-2 sm:grid-cols-1 gap-4 px-4'>
-            <div className="col-span-1 flex flex-col gap-2">
-              <span>From(Day)</span>
-              <Dropdown setPlaceholder={setStartDay} typeDrop="days" placeholder={startDay} data={days} />
+    <div className='flex items-center h-screen'>
+        <div className="max-w-4xl mx-auto grid sm:grid-cols-1 lg:grid-cols-2 gap-4 border border-dark-color rounded-md min-h-[50vh] flex-1 p-4">
+          <LoginForm/>
+          <div className="bg-blue-color text-white-color hidden lg:flex flex-col items-center justify-center rounded-md h-full lg:col-span-1">
+            <div className='text-center px-3 flex flex-col gap-4 items-center'>
+              <h3 className="text-2xl font-bold">Welcome to e-store</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
+              <Link className='px-6 py-2 rounded-md border border-white-color' href={"/signup"}>Sign Up</Link>
             </div>
-            <div className="col-span-1 flex flex-col gap-2">
-              <span>To(Day)</span>
-              <Dropdown setPlaceholder={setEndDay} typeDrop="days" placeholder={endDay} data={days} />
-            </div>
-            <div className="col-span-1 flex flex-col gap-2">
-              <span>At(Time)</span>
-              <Dropdown setPlaceholder={setStartTime} typeDrop="time" placeholder={startTime} data={times} />
-            </div>
-            <div className="col-span-1 flex flex-col gap-2">
-              <span>To(Time)</span>
-              <Dropdown setPlaceholder={setEndTime} typeDrop="time" placeholder={endTime} data={times} />
-            </div>
-
-            <button className='bg-blue-color lg:col-span-2 sm:col-span-1 py-2 rounded-md'>
-              save
-            </button>
           </div>
         </div>
-        <div className="col-span-1 border border-dark-color rounded-md">
-
-        </div>
-      </div>
-    </main>
+    </div>
   )
 }
+
+export default Home
