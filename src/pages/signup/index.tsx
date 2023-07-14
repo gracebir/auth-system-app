@@ -1,9 +1,13 @@
 import TextField from '@/components/TextField'
+import { userRegistration } from '@/utils/AuthentionApi'
+import { signUpSchema } from '@/validator/authValidation'
 import { useFormik } from 'formik'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import React from 'react'
 
 function Signup() {
+  const { push} = useRouter()
   const { values, errors, handleChange, handleBlur, handleSubmit } = useFormik({
     initialValues: {
       name: '',
@@ -13,9 +17,17 @@ function Signup() {
 
     },
     validateOnBlur: true,
-    onSubmit: (values, actions) => {
-
+    onSubmit: async(values) => {
+      await userRegistration({
+        name: values.name,
+        email: values.email,
+        password: values.password
+      }).then((data)=> {
+        console.log(data)
+        push('/')
+      }).catch(err => console.log(err))
     },
+    validationSchema: signUpSchema
   })
   return (
     <div className='flex items-center h-screen'>
@@ -31,6 +43,7 @@ function Signup() {
               name='name'
               type='text'
               value={values.name}
+              onBlur={handleBlur}
               onChange={handleChange}
               errorMsg={errors.name}
               placeholder='Enter Your Name' />
@@ -46,6 +59,7 @@ function Signup() {
               label='Password'
               name='password'
               type='password'
+              onBlur={handleBlur}
               value={values.password}
               onChange={handleChange}
               errorMsg={errors.password}
@@ -55,6 +69,7 @@ function Signup() {
               type='password'
               name='confirmPassword'
               value={values.confirmPassword}
+              onBlur={handleBlur}
               onChange={handleChange}
               errorMsg={errors.confirmPassword}
               placeholder='Confirm Your Password' />
