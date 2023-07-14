@@ -56,6 +56,6 @@ Users should be able to:
 
 if you want to test follow these simple steps:
 
-- first clone the repo on (https://github.com/gracebir/auth-system-app)[https://github.com/gracebir/auth-system-app] by running in you terminal `git clone https://github.com/gracebir/auth-system-app`
+- first clone the repo on [https://github.com/gracebir/auth-system-app](https://github.com/gracebir/auth-system-app) by running in you terminal `git clone https://github.com/gracebir/auth-system-app`
 - Then run in your terminal `cd auth-system-app && yarn`
 - Once all packages will be install, you will run `yarn dev`
