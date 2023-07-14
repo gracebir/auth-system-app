@@ -1,15 +1,29 @@
 import { useFormik } from 'formik';
 import React from 'react'
 import TextField from './TextField';
+import { useRouter } from 'next/router'
 import Link from 'next/link';
+import { loginSchema } from '@/validator/authValidation';
+import { userLogin } from '@/utils/AuthentionApi';
 
 const LoginForm = () => {
+  const { push} = useRouter()
   const {handleSubmit, handleChange, values, errors} = useFormik({
     initialValues:{
       email:'',
       password:''
     },
-    onSubmit: (values, actions) => {},
+    validateOnBlur: true,
+    onSubmit: async (values) => {
+      await userLogin({
+        email: values.email,
+        password: values.password
+      }).then((data)=> {
+        console.log(data)
+        push('/authenticated')
+      }).catch(err => console.log(err))
+    },
+    validationSchema: loginSchema
   })
   return (
     <form className='col-span-1 flex flex-col gap-9' onSubmit={handleSubmit}>
