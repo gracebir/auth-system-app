@@ -50,7 +50,7 @@ Users should be able to:
 - [x] implement authentication endpoint (`api/auth`)
 - [x] implement user registration endpoint business logic (`api/register`)
 - [x] implement getStore, I am days and time schedule endpoint (`api/store/id` and `api/time/id`)
-- [] write end to end test with cypress
+- [ ] write end to end test with cypress
 
 ## Testing the App locally
 
