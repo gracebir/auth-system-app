@@ -40,3 +40,14 @@ export type tstoreTimeSchedule = {
     startHour: string
     endHour: string
 }
+
+export type tUserResponse = {
+    id: number
+    name: string
+    email: string
+}
+
+export type tInitialContext = {
+    user?: tUserResponse
+    setUser?: Dispatch<SetStateAction<tuserRegistration>>
+}

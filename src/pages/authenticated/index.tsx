@@ -1,12 +1,14 @@
 import Dropdown from "@/components/Dropdown"
 import { times, days } from "@/data"
-import { useState } from "react"
+import { useState} from "react"
+import IsAuth from "@/components/IsAuth"
 
-export default function Authenticated() {
+ function Authenticated() {
   const [startTime, setStartTime] = useState("")
   const [endTime, setEndTime] = useState("")
   const [startDay, setStartDay] = useState("Days here")
   const [endDay, setEndDay] = useState("End Days here")
+
   return (
     <main className="flex items-center min-h-screen">
       <div className='border border-dark-color rounded-md grid lg:grid-cols-2 sm:grid-cols-1 flex-1 max-w-7xl mx-auto p-4'>
@@ -45,3 +47,5 @@ export default function Authenticated() {
     </main>
   )
 }
+
+export default Authenticated

@@ -19,7 +19,7 @@ const LoginForm = () => {
         email: values.email,
         password: values.password
       }).then((data)=> {
-        console.log(data)
+        localStorage.setItem("user", JSON.stringify(data))
         push('/authenticated')
       }).catch(err => console.log(err))
     },
