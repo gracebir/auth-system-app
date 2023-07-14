@@ -6,7 +6,7 @@ const prisma = new PrismaClient()
 export default async function handler(req: NextApiRequest, res:NextApiResponse){
     if(req.method === "POST"){
         const { startHour, endHour, storeId } = req.body
-        if(!startHour || !endHour || storeId) return res.status(502).json({msg: "fields can't be empty"})
+        if(!startHour || !endHour || !storeId) return res.status(502).json({msg: "fields can't be empty"})
         try {
             const range = await prisma.timeService.create({
                 data: {

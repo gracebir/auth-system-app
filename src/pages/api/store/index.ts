@@ -6,8 +6,8 @@ const prisma = new PrismaClient()
 export default async function handler(req: NextApiRequest, res:NextApiResponse){
     if(req.method === "POST"){
         const { startDay, endDay, userId } = req.body
-        if(!startDay || !endDay || userId) return res.status(502).json({msg: "field can't be empty"})
         try {
+            if(!startDay || !endDay || !userId) return res.status(502).json({msg: "field can't be empty"})
             const range = await prisma.store.create({
                 data: {
                     startDay,
