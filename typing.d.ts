@@ -15,3 +15,28 @@ export type tDropdrownProps = {
     data: Array<string>
     typeDrop: string
 }
+
+export type tuserRegistration = {
+    name: string
+    email: string
+    password: string
+}
+
+export type tuserLogin = {
+    email: string
+    password: string
+}
+
+export type tstoreDaySchedule = {
+    id?: number
+    userId: number
+    startDay: string
+    endDay: string
+}
+
+export type tstoreTimeSchedule = {
+    id?: number
+    storeId: number
+    startHour: string
+    endHour: string
+}
