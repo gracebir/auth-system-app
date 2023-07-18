@@ -1,8 +1,8 @@
 import prisma from "@/lib/prisma"
 
 type requestBody = {
-    startHour: number
-    endHour: number
+    startHour: string
+    endHour: string
     dayId: number
 }
 
