@@ -37,6 +37,6 @@ model TimeService{
   id Int @id @default(autoincrement())
   dayId Int
   openDay OpenDay @relation(fields: [dayId], references: [id])
-  startHour Int
-  endHour Int
+  startHour String
+  endHour String
 }
