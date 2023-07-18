@@ -1,12 +1,11 @@
 'use client';
-import React, { useState } from 'react'
 import { CiSearch } from 'react-icons/ci'
 import { AiOutlineUser } from 'react-icons/ai'
 import { LuStore} from 'react-icons/lu'
 import Link from 'next/link';
+import SignButton from './SignButton';
 
 export const Header = () => {
-    const [user, setUser] = useState(true)
     return (
         <header className={`w-full`}>
             <div className='w-full border-b border-dark-color top-0 sticky z-50 py-6 bg-very-dark'>
@@ -27,32 +26,7 @@ export const Header = () => {
                             </button>
                         </form> */}
                     </div>
-                    <div className='flex gap-10'>
-                    {user ? (
-                        <>
-                            <div className="hidden lg:flex items-center gap-3">
-                                <AiOutlineUser size={22} className='text-blue-color' />
-                                <div className="flex flex-col">
-                                    <span className='text-gray-color text-sm'>Hello, { } </span>
-                                    <button className='bg-none outline-none hover:underline text-sm'>Logout</button>
-                                </div>
-                            </div>
-                            <div className='border p-2 border-gray-500 lg:hidden rounded-full'>
-                                <AiOutlineUser size={18} className='text-blue-color' />
-                            </div>
-                        </>
-                    ) : (
-                        <>
-                            <Link className="hidden lg:flex items-center gap-3" href={"/signin"}>
-                                <AiOutlineUser size={22} className='text-blue-color' />
-                                <div className="flex flex-col">
-                                    <span className='text-gray-color text-sm'>Hello, Sign in</span>
-                                    <span>My Account</span>
-                                </div>
-                            </Link>
-                        </>
-                    )}
-                </div>
+                    <SignButton/>
                 </div>
                 
             </div>
