@@ -18,10 +18,10 @@ function Authenticated() {
           <h1 className="text-xl lg:text-2xl font-bold text-gray-200 text-center tex-start">Manage your store here</h1>
           <div className="lg:border w-full lg:border-gray-700 rounded-lg px-5 py-4 grid gap-6 sm:grid-cols-1 lg:grid-cols-5">
             <div className="lg:col-span-2 flex flex-col gap-3 sm:col-span-1">
-              <p className="italic text-gray-400">Start managing for store by clicking on card</p>
+              <p className="italic text-center lg:text-start text-gray-400">Start managing for store by clicking on plus button</p>
               <div className="flex flex-col gap-3 lg:gap-4 items-center ">
                 <BsArrowRight size={24} className="lg:block hidden" />
-                <button onClick={() => setCollapse(!collapse)} className={`${collapse ? 'px-3 py-3 rounded-full text-gray-200 border border-blue-300 hover:border-blue-color' : 'px-4 lg:px-6 py-2 border border-blue-900 hover:border-blue-color rounded-lg'}`}>
+                <button onClick={() => setCollapse(!collapse)} className={`duration-300 transition-all ${collapse ? 'px-3 py-3 rounded-full text-gray-200 border border-blue-300 hover:border-blue-color' : 'px-4 lg:px-6 py-2 border border-blue-900 hover:border-blue-color rounded-lg'}`}>
                   {collapse ? <IoMdClose className="text-white" /> : "Add a new store"}
                 </button>
               </div>
