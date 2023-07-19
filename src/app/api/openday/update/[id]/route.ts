@@ -5,7 +5,7 @@ type requestBody = {
     endDay: string
 }
 
-export async function UPDATE(request: Request, { params }: { params: { id: number } }) {
+export async function PUT(request: Request, { params }: { params: { id: number } }) {
     const { startDay, endDay }: requestBody = await request.json()
     
     const openDay = await prisma.openDay.findUnique({

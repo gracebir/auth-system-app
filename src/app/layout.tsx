@@ -2,6 +2,7 @@ import Provider from '@/components/Provider'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Quicksand } from 'next/font/google'
+import { AppContextProvider } from '@/context/AppContext'
 
 const quicksand = Quicksand({
   subsets: ['latin'],
@@ -22,7 +23,9 @@ export default function RootLayout({
     <html lang="en">
       <body suppressHydrationWarning={true} className={`${quicksand.className} bg-very-dark text-white`}>
         <Provider>
-          {children}
+          <AppContextProvider>
+            {children}
+          </AppContextProvider>
         </Provider>
       </body>
     </html>

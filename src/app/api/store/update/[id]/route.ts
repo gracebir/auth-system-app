@@ -4,7 +4,7 @@ type requestBody = {
     name: string
 }
 
-export async function UPDATE(request: Request, { params }: { params: { id: number } }) {
+export async function PUT(request: Request, { params }: { params: { id: number } }) {
     const { name }: requestBody = await request.json()
     
     const store = await prisma.store.findUnique({

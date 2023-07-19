@@ -5,7 +5,7 @@ type requestBody = {
     endHour: string
 }
 
-export async function UPDATE(request: Request, { params }: { params: { id: number } }) {
+export async function PUT(request: Request, { params }: { params: { id: number } }) {
     const { startHour, endHour }: requestBody = await request.json()
     
     const timeService = await prisma.timeService.findUnique({

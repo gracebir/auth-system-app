@@ -27,5 +27,7 @@ export async function POST(request: Request) {
     })
 
     const { password,...result} = user;
-    return new Response(JSON.stringify(result))
+    return new Response(JSON.stringify(result), {
+        headers: { "Content-Type": "application/json" },
+    })
 } 

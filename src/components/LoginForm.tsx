@@ -4,16 +4,22 @@ import { loginSchema } from "@/lib/baseSchema";
 import { useFormik } from "formik";
 import TextField from "./Elements/TextField";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 const LoginForm = () => {
-    const { handleSubmit, handleChange, values, errors } = useFormik({
+    const { handleSubmit, handleChange, values, errors,handleBlur, touched } = useFormik({
         initialValues: {
             email: '',
             password: ''
         },
         validateOnBlur: true,
         onSubmit: async (values) => {
-
+            signIn('credentials', {
+                username: values.email,
+                password: values.password,
+                redirect: true,
+                callbackUrl: '/authenticated'
+            })
         },
         validationSchema: loginSchema
     })
@@ -28,6 +34,8 @@ const LoginForm = () => {
                     name='email'
                     value={values.email}
                     errorMsg={errors.email}
+                    touched={touched.email}
+                    onBlur={handleBlur}
                     onChange={handleChange}
                     label='E-mail Address'
                     type='email'
@@ -36,6 +44,8 @@ const LoginForm = () => {
                     name='password'
                     label='Password'
                     value={values.password}
+                    onBlur={handleBlur}
+                    touched={touched.password}
                     errorMsg={errors.password}
                     onChange={handleChange}
                     type='password'
