@@ -26,3 +26,10 @@ export type contextType = {
     timeServices?: timeServiceType[],
     setTimeSevices?: Dispatch<SetStateAction<timeServiceType[]>>
 }
+
+export type tDropdrownProps = {
+    text: string
+    setText: React.Dispatch<React.SetStateAction<string>>
+    data: Array<string>
+    isStart?: boolean
+}
