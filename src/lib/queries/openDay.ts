@@ -33,7 +33,7 @@ export const updateOpenDay = async ({ startDay, id, endDay }: openDayType) => {
 }
 
 export const deleteOpenDay = async (id: number) => {
-    const response = await fetch(`/api/openday/update/${id}`, {
+    const response = await fetch(`/api/openday/delete/${id}`, {
         method: 'DELETE'
     })
 

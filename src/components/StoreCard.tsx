@@ -47,7 +47,7 @@ function StoreCard({ name, id }: storeType) {
             </div>
 
             {openDay && openDay.map((open) => (
-              <OpenDay key={open.id} id={open.id} startDay={open.startDay} endDay={open.endDay} />
+              <OpenDay setOpenDays={setOpenDay} openDays={openDay} key={open.id} id={open.id} startDay={open.startDay} endDay={open.endDay} />
             ))}
           </div>
         </div>

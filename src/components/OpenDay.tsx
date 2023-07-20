@@ -19,7 +19,7 @@ const OpenDay = ({ id, startDay, endDay, setOpenDays, openDays }: openDayProps) 
   const handleDelete = async() =>{
     if(id){
       const openDayDeleted = await deleteOpenDay(id)
-      setOpenDays(openDays.filter(days => days.id !== openDayDeleted.id))
+      setOpenDays(openDays?.filter(days => days.id !== openDayDeleted.id))
     }
    
   }
@@ -59,12 +59,12 @@ const OpenDay = ({ id, startDay, endDay, setOpenDays, openDays }: openDayProps) 
                 <TimeServiceForm setTimeSevices={setTimeSevices} timeServices={timeServices} dayId={id!} />
               )}
               {timeServices.map((times) => (
-                <TimeService setTimeSevices={setTimeSevices} timeServices={timeServices} dayId={times.dayId} startHour={times.startHour} endHour={times.endHour} key={times.id} />
+                <TimeService setTimeSevices={setTimeSevices} timeServices={timeServices} dayId={times.dayId} id={times.id} startHour={times.startHour} endHour={times.endHour} key={times.id} />
               ))}
             </div>
           ) : (
-            <div>
-              <div className='ml-6 border-l flex items-center gap-6 border-gray-400 pl-2'>
+            <div className='flex flex-col gap-2'>
+              <div className='ml-6 border-l flex flex-col lg:flex-row gap-2 items-center lg:gap-6 border-gray-400 pl-2'>
                 <span className='text-center'>No times range sets</span>
                 <button onClick={() => setShowForm(!showForm)} className={`duration-300 transition-all ${showForm ? 'px-3 py-3 rounded-full text-gray-200 border border-blue-300 hover:border-blue-color' : 'px-2 lg:px-6 py-1 border border-blue-900 hover:border-blue-color text-sm rounded-lg'}`}>
                   {showForm ? <IoMdClose className="text-white text-base" /> : "add availability"}
