@@ -7,9 +7,14 @@ import { fetchTimeService } from '@/lib/queries/timeService';
 import TimeService from './TimeService';
 import { FaPen } from 'react-icons/fa'
 import { BiSolidTrashAlt } from 'react-icons/bi'
+import { IoMdClose } from 'react-icons/io'
+import { TimeServiceForm } from './TimeServiceForm';
+
 const OpenDay = ({ id, startDay, endDay }: openDayType) => {
   const [collapse, setCollapse] = useState(false)
   const [timeServices, setTimeSevices] = useState<Array<timeServiceType>>([])
+  const [showForm, setShowForm] = useState(false)
+
   useEffect(() => {
     if (id) {
       fetchTimeService(id)
@@ -34,15 +39,31 @@ const OpenDay = ({ id, startDay, endDay }: openDayType) => {
       {collapse && (
         <>
           {timeServices.length ? (
-            <div className='ml-6 border-l border-gray-400 pl-2'>
-              <h3 className='text-base lg:text-lg'>Times service ranges</h3>
+            <div className='ml-6 border-l flex flex-col gap-2 lg:gap-3 border-gray-400 pl-2'>
+              <div className='flex flex-col items-center lg:flex-row gap-2 lg:gap-4'>
+                <h3 className='text-base lg:text-lg'>Times service ranges</h3>
+                <button onClick={() => setShowForm(!showForm)} className={`duration-300 transition-all ${showForm ? 'px-3 py-3 rounded-full text-gray-200 border border-blue-300 hover:border-blue-color' : 'px-2 lg:px-6 py-1 border border-blue-900 hover:border-blue-color rounded-lg'}`}>
+                  {showForm ? <IoMdClose className="text-white text-base" /> : "add availability"}
+                </button>
+              </div>
+              {showForm && (
+                <TimeServiceForm setTimeSevices={setTimeSevices} timeServices={timeServices} dayId={id!} />
+              )}
               {timeServices.map((times) => (
                 <TimeService dayId={times.dayId} startHour={times.startHour} endHour={times.endHour} key={times.id} />
               ))}
             </div>
           ) : (
-            <div className='ml-6 border-l border-gray-400 pl-2'>
-              <span className='text-center'>No times range sets</span>
+            <div>
+              <div className='ml-6 border-l flex items-center gap-6 border-gray-400 pl-2'>
+                <span className='text-center'>No times range sets</span>
+                <button onClick={() => setShowForm(!showForm)} className={`duration-300 transition-all ${showForm ? 'px-3 py-3 rounded-full text-gray-200 border border-blue-300 hover:border-blue-color' : 'px-2 lg:px-6 py-1 border border-blue-900 hover:border-blue-color text-sm rounded-lg'}`}>
+                  {showForm ? <IoMdClose className="text-white text-base" /> : "add availability"}
+                </button>
+              </div>
+              {showForm && (
+                <TimeServiceForm setTimeSevices={setTimeSevices} timeServices={timeServices} dayId={id!} />
+              )}
             </div>
           )}
         </>

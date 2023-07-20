@@ -11,8 +11,6 @@ export const AppContext = createContext(initialState)
 export const AppContextProvider = ({ children }: { children: ReactNode }) => {
     const { data: session} = useSession()
     const [stores, setStores] = useState<Array<storeType>>([])
-    const [openDay, setOpenDay] = useState<Array<openDayType>>([])
-    const [timeServices, setTimeSevices] = useState<Array<timeServiceType>>([])
 
     useEffect(()=> {
         if(session && session.user){
@@ -25,10 +23,6 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
         <AppContext.Provider value={{
             stores: stores,
             setStores,
-            openDay,
-            setOpenDay,
-            timeServices,
-            setTimeSevices
         }}>
             {children}
         </AppContext.Provider>
