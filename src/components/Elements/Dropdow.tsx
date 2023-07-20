@@ -12,7 +12,7 @@ const Dropdown = ({ text, isStart = false, data, setText }: tDropdrownProps) => 
         <div className="relative flex w-full">
             <div onClick={() => setOpen(!open)} className="bg-blue-color px-3 py-2 cursor-pointer flex items-center w-full justify-between rounded-sm">
                 <div className='flex gap-2 items-center'>
-                    {text ? <span className='font-semibold'>{text}</span>: isStart ? <span className='font-semibold italic text-gray-500'>Monday</span>:<span className='font-semibold italic text-gray-500'>Wednesday</span>}
+                    {text ? <span className='font-semibold'>{text}</span> : isStart ? <span className='font-semibold italic text-gray-300'>Mon..</span> : <span className='font-semibold italic text-gray-300'>Wed...</span>}
                 </div>
                 {open ? <BsChevronUp /> : <BsChevronDown />}
             </div>
