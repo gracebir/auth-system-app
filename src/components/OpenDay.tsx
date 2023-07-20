@@ -20,6 +20,7 @@ const OpenDay = ({ id, startDay, endDay, setOpenDays, openDays }: openDayProps) 
     if(id){
       const openDayDeleted = await deleteOpenDay(id)
       setOpenDays(openDays?.filter(days => days.id !== openDayDeleted.id))
+      alert(`deleted`)
     }
    
   }

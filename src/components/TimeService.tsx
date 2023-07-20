@@ -10,6 +10,7 @@ const TimeService = ({ startHour, endHour, id, setTimeSevices, timeServices }: t
         if(id){
             const timeDelete = await deleteTimeService(id)
             setTimeSevices(timeServices.filter( times => times.id !== timeDelete.id))
+            alert(`deleted`)
         }
     }
     return (
