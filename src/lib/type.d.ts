@@ -21,10 +21,6 @@ export type timeServiceType = {
 export type contextType = {
     stores?: Array<storeType>
     setStores?: Dispatch<SetStateAction<storeType[]>>
-    setOpenDay?: Dispatch<SetStateAction<openDayType[]>>
-    openDay?: openDayType[],
-    timeServices?: timeServiceType[],
-    setTimeSevices?: Dispatch<SetStateAction<timeServiceType[]>>
 }
 
 export type tDropdrownProps = {
@@ -32,4 +28,16 @@ export type tDropdrownProps = {
     setText: React.Dispatch<React.SetStateAction<string>>
     data: Array<string>
     isStart?: boolean
+}
+
+export type typeOpenDayForm = {
+    setOpenDays: Dispatch<SetStateAction<openDayType[]>>
+    openDays: openDayType[]
+    storeId: number
+}
+
+export type typeTimeServiceForm = {
+    setTimeSevices: Dispatch<SetStateAction<timeServiceType[]>>
+    timeServices: timeServiceType[]
+    dayId: number
 }
