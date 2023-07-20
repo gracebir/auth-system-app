@@ -1,5 +1,5 @@
 'use client';
-import { openDayType, timeServiceType } from '@/lib/type';
+import { openDayProps, openDayType, timeServiceType } from '@/lib/type';
 import { AiOutlinePlus } from 'react-icons/ai'
 import { AiOutlineMinus } from 'react-icons/ai'
 import React, { useEffect, useState } from 'react'
@@ -9,11 +9,20 @@ import { FaPen } from 'react-icons/fa'
 import { BiSolidTrashAlt } from 'react-icons/bi'
 import { IoMdClose } from 'react-icons/io'
 import { TimeServiceForm } from './TimeServiceForm';
+import { deleteOpenDay } from '@/lib/queries/openDay';
 
-const OpenDay = ({ id, startDay, endDay }: openDayType) => {
+const OpenDay = ({ id, startDay, endDay, setOpenDays, openDays }: openDayProps) => {
   const [collapse, setCollapse] = useState(false)
   const [timeServices, setTimeSevices] = useState<Array<timeServiceType>>([])
   const [showForm, setShowForm] = useState(false)
+
+  const handleDelete = async() =>{
+    if(id){
+      const openDayDeleted = await deleteOpenDay(id)
+      setOpenDays(openDays.filter(days => days.id !== openDayDeleted.id))
+    }
+   
+  }
 
   useEffect(() => {
     if (id) {
@@ -28,8 +37,8 @@ const OpenDay = ({ id, startDay, endDay }: openDayType) => {
         <div className='flex justify-between gap-5 items-center '>
           <span className="text-center text-sm lg:text-base text-gray-300 font-semibold">{startDay} to {endDay}</span>
           <div className='flex gap-3 text-gray-400'>
-            <FaPen className='hover:text-blue-700' />
-            <BiSolidTrashAlt className='hover:text-red-500' />
+            <FaPen className='hover:text-blue-700 cursor-pointer' />
+            <BiSolidTrashAlt onClick={handleDelete} className='hover:text-red-500 cursor-pointer' />
           </div>
         </div>
         <div onClick={() => setCollapse(!collapse)} className='text-base cursor-pointer lg:text-lg'>
@@ -50,7 +59,7 @@ const OpenDay = ({ id, startDay, endDay }: openDayType) => {
                 <TimeServiceForm setTimeSevices={setTimeSevices} timeServices={timeServices} dayId={id!} />
               )}
               {timeServices.map((times) => (
-                <TimeService dayId={times.dayId} startHour={times.startHour} endHour={times.endHour} key={times.id} />
+                <TimeService setTimeSevices={setTimeSevices} timeServices={timeServices} dayId={times.dayId} startHour={times.startHour} endHour={times.endHour} key={times.id} />
               ))}
             </div>
           ) : (

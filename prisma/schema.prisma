@@ -22,7 +22,7 @@ model Store {
   id Int @id @default(autoincrement())
   name String
   userId Int
-  user User @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model OpenDay{
@@ -36,7 +36,7 @@ model OpenDay{
 model TimeService{
   id Int @id @default(autoincrement())
   dayId Int
-  openDay OpenDay @relation(fields: [dayId], references: [id])
+  openDay OpenDay @relation(fields: [dayId], references: [id], onDelete: Cascade)
   startHour String
   endHour String
 }

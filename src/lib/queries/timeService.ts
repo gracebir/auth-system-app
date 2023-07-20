@@ -40,6 +40,6 @@ export const deleteTimeService= async (id: number) => {
         method: 'DELETE'
     })
 
-    const data = await response.json()
+    const data:timeServiceType = await response.json()
     return data
 }

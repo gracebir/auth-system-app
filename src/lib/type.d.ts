@@ -11,11 +11,29 @@ export type openDayType = {
     storeId?: number
 }
 
+export type openDayProps = {
+    id?: number
+    startDay: string
+    endDay: string
+    storeId?: number
+    setOpenDays: Dispatch<SetStateAction<openDayType[]>>
+    openDays: openDayType[]
+}
+
 export type timeServiceType = {
     id?: number
     startHour: string
     endHour: string
     dayId: number
+}
+
+export type typeTimeServiceProps = {
+    id?: number
+    startHour: string
+    endHour: string
+    dayId: number
+    setTimeSevices: Dispatch<SetStateAction<timeServiceType[]>>
+    timeServices: timeServiceType[]
 }
 
 export type contextType = {

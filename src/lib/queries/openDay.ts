@@ -37,6 +37,6 @@ export const deleteOpenDay = async (id: number) => {
         method: 'DELETE'
     })
 
-    const data = await response.json()
+    const data:openDayType = await response.json()
     return data
 }

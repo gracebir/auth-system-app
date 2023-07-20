@@ -13,7 +13,9 @@ export async function DELETE(request: Request, { params }: { params: { id: numbe
                 id: openDay.id
             }
         })
-        return new Response(JSON.stringify({ msg: `open days ${openDayDeleted.id} deleted!!` }))
+        return new Response(JSON.stringify(openDayDeleted), {
+            headers: { "Content-Type": "application/json" },
+        })
     } else {
         return new Response(JSON.stringify({ error: "open days does not exists" }))
     }
