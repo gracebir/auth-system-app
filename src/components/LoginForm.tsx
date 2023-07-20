@@ -50,7 +50,7 @@ const LoginForm = () => {
                     onChange={handleChange}
                     type='password'
                     placeholder='Enter Your Password' />
-                <button type='submit' className='bg-blue-color hover:bg-blue-500 duration-200 py-2 rounded-md'>
+                <button type='submit' className='bg-blue-color hover:bg-blue-500 duration-200 py-2 rounded-md px-6'>
                     Sign In
                 </button>
                 <div className='flex justify-center'>

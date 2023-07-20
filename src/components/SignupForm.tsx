@@ -4,6 +4,8 @@ import { signUpSchema } from "@/lib/baseSchema";
 import { useFormik } from "formik";
 import TextField from "./Elements/TextField";
 import Link from "next/link";
+import { userSignUp } from "@/lib/queries/user";
+import { redirect } from 'next/navigation'
 
 const SignupForm = () => {
     const { values, errors, handleChange,touched, handleBlur, handleSubmit } = useFormik({
@@ -16,7 +18,13 @@ const SignupForm = () => {
         },
         validateOnBlur: true,
         onSubmit: async (values) => {
-
+            const user = await userSignUp({
+                name: values.name,
+                email: values.email,
+                password: values.password
+            })
+            alert(`${user.name} account created`)
+            redirect("/")
         },
         validationSchema: signUpSchema
     })
@@ -63,7 +71,7 @@ const SignupForm = () => {
                 errorMsg={errors.confirmPassword}
                 placeholder='Confirm Your Password' />
             <div className="lg:col-span-2 grid justify-items-center grid-cols-1 sm:col-span-1">
-                <button type='submit' className='bg-blue-color rounded-md lg:w-1/2 py-2'>
+                <button type='submit' className='bg-blue-color rounded-md lg:w-1/2 py-2 px-6'>
                     Sign Up
                 </button>
             </div>
