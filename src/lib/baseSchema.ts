@@ -9,11 +9,11 @@ export const signUpSchema = yup.object().shape({
 
 export const loginSchema = yup.object().shape({
     email: yup.string().email().required("Required"),
-    password: yup.string().min(5).required("Required"),
+    password: yup.string().min(6).required("Required"),
 })
 
 export const storeSchema = yup.object().shape({
-    name: yup.string().min(3).required("name is required")
+    name: yup.string().min(4).required("name is required")
 })
 
 const format = /^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$/

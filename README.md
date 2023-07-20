@@ -13,19 +13,15 @@ In this exercise, we will use React and tailwindcss.
 
 - [auth-system-app](#)
 - [Welcome! 👋](#)
-- [The challenge](#)
+- [The App description](#)
 - [Screenshot](#screenshot)
 - [My Steps](#steps)
 - [Testing the app locally](#testing-the-app-locally)
 
-### The challenge
+### The App description
 
 auth-system-app
-Users should be able to:
 
-- To login or sign up the this application with email and password,
-- You have got 8 to 12 hours, so try to reach as much perfection as possible for this challenge!
-- I've implemented the site below, using only Next.js, Formik, Yup, Cypress and Tailwindcss,
 
 
 
@@ -38,7 +34,6 @@ Users should be able to:
 ## My process
 
 - Next.js
-- Cypress
 - Tailwind
 - Mobile-first workflow
 
@@ -48,7 +43,7 @@ Users should be able to:
 - [x] create sign page ui
 - [x] create authentication ui
 - [x] implement authentication endpoint (`api/auth`)
-- [x] implement user registration endpoint business logic (`api/register`)
+- [x] implement user registration endpoint business logic (`api/user`)
 - [x] implement getStore, I am days and time schedule endpoint (`api/store/id` and `api/time/id`)
 - [ ] write end to end test with cypress
 
@@ -58,4 +53,5 @@ if you want to test follow these simple steps:
 
 - first clone the repo on [https://github.com/gracebir/auth-system-app](https://github.com/gracebir/auth-system-app) by running in you terminal `git clone https://github.com/gracebir/auth-system-app`
 - Then run in your terminal `cd auth-system-app && yarn`
+- After install dependancies, you need to run the following command `yarn prisma:migrate`, for seeding your local database
 - Once all packages will be install, you will run `yarn dev`

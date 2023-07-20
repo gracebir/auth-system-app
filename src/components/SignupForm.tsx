@@ -6,7 +6,7 @@ import TextField from "./Elements/TextField";
 import Link from "next/link";
 
 const SignupForm = () => {
-    const { values, errors, handleChange, handleBlur, handleSubmit } = useFormik({
+    const { values, errors, handleChange,touched, handleBlur, handleSubmit } = useFormik({
         initialValues: {
             name: '',
             email: '',
@@ -30,6 +30,7 @@ const SignupForm = () => {
                 value={values.name}
                 onBlur={handleBlur}
                 onChange={handleChange}
+                touched={touched.name}
                 errorMsg={errors.name}
                 placeholder='Enter Your Name' />
             <TextField
@@ -37,6 +38,7 @@ const SignupForm = () => {
                 type='email'
                 name='email'
                 value={values.email}
+                touched={touched.email}
                 onChange={handleChange}
                 errorMsg={errors.email}
                 placeholder='Email Address' />
@@ -46,6 +48,7 @@ const SignupForm = () => {
                 type='password'
                 onBlur={handleBlur}
                 value={values.password}
+                touched={touched.password}
                 onChange={handleChange}
                 errorMsg={errors.password}
                 placeholder='Enter Your Password' />
@@ -55,6 +58,7 @@ const SignupForm = () => {
                 name='confirmPassword'
                 value={values.confirmPassword}
                 onBlur={handleBlur}
+                touched={touched.confirmPassword}
                 onChange={handleChange}
                 errorMsg={errors.confirmPassword}
                 placeholder='Confirm Your Password' />
