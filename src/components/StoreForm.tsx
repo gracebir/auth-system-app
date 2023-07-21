@@ -19,6 +19,7 @@ const StoreForm = () => {
             if(session && session.user){
                 const userId = session.user.id
                 const store = await saveStore(userId, values.name);
+                alert(`${store.name} add!`)
                 setStores([...stores!, store])
             }
         },
@@ -26,7 +27,7 @@ const StoreForm = () => {
     })
     return (
         <form onSubmit={handleSubmit} className='mt-4 flex flex-col gap-4'>
-            <p className='text-sm lg:text-base italic text-center'>You're about to a new store 📝</p>
+            <p className='text-sm lg:text-base italic text-center'>You're about to add a new store 📝</p>
             <div className='flex flex-col gap-3'>
                 <TextField
                     type='text'

@@ -1,13 +1,10 @@
-# Per Diem challenge
+# Mstore
 
-This is a [Next.js] and bootstrapped with [npx create-next-app@latest](https://nextjs.org/docs/getting-started/installation)
+This is a (Next.js APP)[Next.js] and it is bootstrapped with [npx create-next-app@latest](https://nextjs.org/docs/getting-started/installation)
 
-# the Per Diem Store Register challenge
+# The Managing store schedule app
 
 ## Welcome! 👋
-
-This is a solution to the Gym Traning. The Gym challenge help us to improve our front-end skills by building realistic projects.
-In this exercise, we will use React and tailwindcss.
 
 ## Content
 
@@ -15,14 +12,10 @@ In this exercise, we will use React and tailwindcss.
 - [Welcome! 👋](#)
 - [The App description](#)
 - [Screenshot](#screenshot)
-- [My Steps](#steps)
+- [Built With](#BuiltWith)
 - [Run the app locally](#development)
 
 ### The App description
-
-auth-system-app
-
-
 
 
 ### Screenshot
@@ -30,24 +23,40 @@ auth-system-app
 ![login - desktop-page](./login.png)
 ![signup - desktop-page](./signup.png)
 ![authenticated - desktop-page](./authenticated.png)
+![login - mobile](./msignin.png)
+![signup - mobile](./msignup.png)
+![authenticated - mobile](./mauth.png)
 
-## My process
+### Built With
 
-- Next.js
-- Tailwind
-- Mobile-first workflow
+- [Next.js](https://nextjs.org/)
+- [React.js](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Prisma.io](https://prisma.io/)
+- [Next-auth](https://next-auth.js.org/)
 
 ## Steps
-
+- [x] Setting up prisma with sqlite database
+- [x] create Database schema 
 - [x] create login page ui
 - [x] create sign page ui
 - [x] create authentication ui
 - [x] implement authentication endpoint (`api/auth`)
 - [x] implement user registration endpoint business logic (`api/user`)
-- [x] implement getStore, I am days and time schedule endpoint (`api/store/id` and `api/time/id`)
-- [ ] write end to end test with cypress
+- [x] 
 
 ## Run the app locally
+
+## Getting Started
+
+To get a local copy up and running, please follow these simple steps.
+
+### Prerequisites
+
+Here is what you need to be able to run `Mstore`.
+
+- Node.js (Version: >=16.x <18)
+- Yarn _(recommended)_
 
 ### Setup
 
