@@ -1,5 +1,5 @@
 'use client'
-import { contextType, openDayType, storeType, timeServiceType } from "@/lib/type"
+import { contextType, storeType } from "@/lib/type"
 import { createContext, ReactNode, useEffect, useState } from "react"
 import { useSession } from "next-auth/react"
 import { fetchStore } from "@/lib/queries/query"
@@ -15,7 +15,7 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
     useEffect(()=> {
         if(session && session.user){
             fetchStore(session.user.id)
-            .then(data => setStores(data))
+            .then(data => setStores(data!))
             .catch(err => console.log(err))
         }
     }, [session?.user])

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prisma:migrate":"npx prisma migrate dev --name init",
+    "prisma:migrate": "npx prisma migrate dev --name init",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/jsonwebtoken": "^9.0.2",
+    "cypress": "^12.17.2",
     "prisma": "^5.0.0"
   }
 }

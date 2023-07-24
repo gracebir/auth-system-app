@@ -24,5 +24,5 @@ export async function POST(request: Request) {
             ...userWithoutPass
         }
         return new Response(JSON.stringify(result))
-    } else return new Response(JSON.stringify({msg: 'wrong credentials'}))
+    } else return new Response(JSON.stringify({msg: 'wrong credentials'}), {status: 401})
 }

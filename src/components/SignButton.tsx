@@ -16,7 +16,7 @@ const SignButton = () => {
                             <button onClick={() => signOut()} className='bg-none outline-none hover:underline text-sm'>Logout</button>
                         </div>
                     </div>
-                    <div className='border block p-2 border-gray-500 lg:hidden rounded-full'>
+                    <div onClick={()=> signOut()} className='border cursor-pointer block p-2 border-gray-500 lg:hidden rounded-full'>
                         <AiOutlineUser size={18} className='text-blue-color' />
                     </div>
                 </>
