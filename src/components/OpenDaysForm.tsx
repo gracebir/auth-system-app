@@ -18,8 +18,6 @@ const OpenDaysForm = ({
         if(startDay && endDay){
             const openDay = await saveOpenDay({storeId, startDay, endDay})
             setOpenDays([...openDays, openDay])
-        } else {
-            console.log("not cool")
         }
     }
     return (

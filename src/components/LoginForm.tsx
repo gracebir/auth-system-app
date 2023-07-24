@@ -5,21 +5,32 @@ import { useFormik } from "formik";
 import TextField from "./Elements/TextField";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
-    const { handleSubmit, handleChange, values, errors,handleBlur, touched } = useFormik({
+    const [errorMsg, setErrorMsg] = useState("")
+    const router = useRouter()
+    const { handleSubmit, handleChange, values, errors, handleBlur, touched } = useFormik({
         initialValues: {
             email: '',
             password: ''
         },
         validateOnBlur: true,
         onSubmit: async (values) => {
-            signIn('credentials', {
+            const log = await signIn('credentials', {
                 username: values.email,
                 password: values.password,
-                redirect: true,
-                callbackUrl: '/authenticated'
+                redirect: false,
             })
+
+            if (log?.error==="CredentialsSignin") {
+                setErrorMsg("email or password is wrong")
+                router.push('/')
+            } else {
+                alert(`welcome back`)
+                router.push('/authenticated')
+            }
         },
         validationSchema: loginSchema
     })
@@ -27,7 +38,8 @@ const LoginForm = () => {
         <form className='col-span-1 flex flex-col gap-9' onSubmit={handleSubmit}>
             <div className='text-center flex flex-col gap-4'>
                 <h1 className='text-xl font-bold'>Welcome Back</h1>
-                <span>Enter your credentials to access your account</span>
+                <span className="text-sm lg:text-base">Enter your credentials to access your account</span>
+                {errorMsg && <span className="italic text-red-500 text-sm lg:text-base py-2 lg:py-3">{errorMsg}</span>}
             </div>
             <div className='flex flex-col gap-4'>
                 <TextField
