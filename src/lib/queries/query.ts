@@ -1,9 +1,11 @@
 import { storeType } from "../type"
 
 export const fetchStore = async (id: number) => {
-    const response = await fetch(`/api/user/${id}`)
-    const data: storeType[] = await response.json()
-    return data
+    if (id) {
+        const response = await fetch(`/api/user/${id}`)
+        const data: storeType[] = await response.json()
+        return data
+    }
 }
 
 export const saveStore = async (userId: number, name: string) => {
@@ -19,7 +21,7 @@ export const saveStore = async (userId: number, name: string) => {
     return data
 }
 
-export const updateStore = async ({name, id}:storeType) => {
+export const updateStore = async ({ name, id }: storeType) => {
     const response = await fetch(`/api/store/update/${id}`, {
         method: 'PUT',
         headers: {
@@ -32,7 +34,7 @@ export const updateStore = async ({name, id}:storeType) => {
     return data
 }
 
-export const deleteStore = async (id:number) => {
+export const deleteStore = async (id: number) => {
     const response = await fetch(`/api/store/update/${id}`, {
         method: 'DELETE',
     })
