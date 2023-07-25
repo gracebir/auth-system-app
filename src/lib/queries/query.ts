@@ -17,7 +17,7 @@ export const saveStore = async (userId: number, name: string) => {
         body: JSON.stringify({ name, userId })
     })
 
-    const data: storeType = await response.json()
+    const data = await response.json()
     return data
 }
 
