@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+migrations/
 # next.js
 /.next/
 /out/
@@ -20,7 +20,7 @@
 .DS_Store
 *.pem
 *.db
-
+dev.db-journal
 # debug
 npm-debug.log*
 yarn-debug.log*
