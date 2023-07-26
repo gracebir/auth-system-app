@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "prisma:migrate": "npx prisma migrate dev --name init",
+    "cypress:open": "cypress open",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
