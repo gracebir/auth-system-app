@@ -15,6 +15,8 @@ migrations/
 
 # production
 /build
+1-getting-started/
+2-advanced-examples/
 
 # misc
 .DS_Store
